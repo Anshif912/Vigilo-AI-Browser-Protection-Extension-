@@ -50,7 +50,7 @@ BRAND_CATEGORIES: Dict[str, List[str]] = {
     "Cloud & Dev Platforms": [
         "aws", "azure", "googlecloud", "github", "gitlab", "vercel", "netlify", "cloudflare",
         "heroku", "bitbucket", "docker", "digitalocean", "linode", "hetzner", "supabase",
-        "firebase", "railway", "render", "postman", "datadog", "sentry", "npm", "pypi"
+        "firebase", "railway", "render", "postman", "datadog", "sentry", "npm", "pypi", "ollama"
     ],
     "E-Commerce & Retail": [
         "amazon", "ebay", "walmart", "target", "alibaba", "aliexpress", "shopify", "flipkart",
@@ -65,6 +65,41 @@ BRAND_CATEGORIES: Dict[str, List[str]] = {
         "gmail", "outlook", "yahoomail", "protonmail", "zoho", "fastmail", "dropbox",
         "googledrive", "onedrive", "notion", "evernote", "mailchimp", "sendgrid", "box"
     ]
+}
+
+# Official Brand Domain Registry for Legitimacy Verification (Supports multiple official domains per brand)
+OFFICIAL_BRAND_DOMAINS: Dict[str, List[str]] = {
+    "google": ["google.com", "google.co.in", "google.co.uk", "google.ca", "google.de", "google.fr", "google.it", "google.es", "google.co.jp"],
+    "github": ["github.com", "github.io"],
+    "microsoft": ["microsoft.com", "microsoftonline.com", "office.com", "office365.com", "live.com", "azure.com", "windows.com"],
+    "apple": ["apple.com", "icloud.com"],
+    "amazon": ["amazon.com", "amazon.co.in", "amazon.co.uk", "amazon.ca", "aws.amazon.com"],
+    "meta": ["meta.com", "facebook.com", "instagram.com", "whatsapp.com"],
+    "facebook": ["facebook.com", "fb.com"],
+    "instagram": ["instagram.com"],
+    "whatsapp": ["whatsapp.com"],
+    "netflix": ["netflix.com"],
+    "discord": ["discord.com", "discord.gg"],
+    "linkedin": ["linkedin.com"],
+    "openai": ["openai.com"],
+    "chatgpt": ["chatgpt.com", "openai.com"],
+    "gemini": ["google.com"],
+    "dropbox": ["dropbox.com"],
+    "paypal": ["paypal.com", "paypalobjects.com"],
+    "stripe": ["stripe.com"],
+    "paytm": ["paytm.com"],
+    "phonepe": ["phonepe.com"],
+    "razorpay": ["razorpay.com"],
+    "binance": ["binance.com"],
+    "coinbase": ["coinbase.com"],
+    "metamask": ["metamask.io"],
+    "ollama": ["ollama.com"],
+    "sbi": ["sbi.co.in", "onlinesbi.sbi", "sbi"],
+    "hdfc": ["hdfcbank.com", "hdfc.com"],
+    "passportindia": ["passportindia.gov.in"],
+    "cloudflare": ["cloudflare.com"],
+    "vercel": ["vercel.com", "vercel.app"],
+    "huggingface": ["huggingface.co"]
 }
 
 # Flattened lookup list and map

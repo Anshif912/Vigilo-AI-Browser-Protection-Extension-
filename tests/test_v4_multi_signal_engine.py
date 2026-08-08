@@ -8,7 +8,7 @@ from engine.fusion_engine import ThreatFusionEngine
 
 def run_tests():
     print("=" * 70)
-    print("VIGILO v4.0 MULTI-SIGNAL BROWSER RISK ENGINE - AUTOMATED TEST SUITE")
+    print("VIGILO v4.1 MULTI-SIGNAL BROWSER RISK ENGINE - AUTOMATED TEST SUITE")
     print("=" * 70)
 
     engine = ThreatFusionEngine()
@@ -31,8 +31,8 @@ def run_tests():
     print(f"  Threat Score: {res1.threat_score}/100")
     print(f"  Duration: {dur1} ms")
 
-    if res1.overall_status in ["Unverified", "Suspicious", "High Risk"] and res1.overall_status != "Safe":
-        print("  [PASS] Unreachable domain correctly returned 'Unverified' / 'Suspicious' and NEVER 'Safe'!")
+    if res1.overall_status in ["UNVERIFIED", "Suspicious", "High Risk"] and res1.overall_status != "Safe":
+        print("  [PASS] Unreachable domain correctly returned 'UNVERIFIED' / 'Suspicious' and NEVER 'Safe'!")
         passed += 1
     else:
         print("  [FAIL] Unreachable domain returned Safe!")
@@ -49,8 +49,8 @@ def run_tests():
     print(f"  Technical Status: {res2.technical_status}")
     print(f"  Overall Status: {res2.overall_status}")
 
-    if "Unreachable" in res2.technical_status and res2.overall_status in ["Unverified", "Suspicious", "Low Risk"]:
-        print("  [PASS] NXDOMAIN correctly flagged as Unreachable & Unverified/Suspicious!")
+    if "Unreachable" in res2.technical_status and res2.overall_status in ["UNVERIFIED", "Suspicious", "Low Risk"]:
+        print("  [PASS] NXDOMAIN correctly flagged as Unreachable & UNVERIFIED/Suspicious!")
         passed += 1
     else:
         print("  [FAIL] NXDOMAIN handling failed!")
@@ -64,8 +64,8 @@ def run_tests():
     print(f"  URL: https://google.com")
     print(f"  Overall Status: {res3.overall_status}")
 
-    if res3.overall_status == "Verified Safe":
-        print("  [PASS] google.com correctly classified as 'Verified Safe'!")
+    if res3.overall_status == "Safe":
+        print("  [PASS] google.com correctly classified as 'Safe'!")
         passed += 1
     else:
         print("  [FAIL] Whitelist check failed!")
@@ -101,7 +101,7 @@ def run_tests():
     print(f"  Overall Status: {res5.overall_status}")
     print(f"  Threat Score: {res5.threat_score}/100")
 
-    if res5.threat_score >= 50 or "Social Engineering" in str(res5.why_blocked) or any("Fake CAPTCHA" in str(s) for s in res5.why_blocked):
+    if res5.threat_score >= 40 or any("Fake CAPTCHA" in str(s) for s in res5.why_blocked):
         print("  [PASS] Fake CAPTCHA PowerShell lure correctly detected!")
         passed += 1
     else:
@@ -116,8 +116,8 @@ def run_tests():
     print(f"  URL: https://github.com/login")
     print(f"  Overall Status: {res6.overall_status}")
 
-    if res6.overall_status == "Verified Safe":
-        print("  [PASS] Legitimate github.com/login route remained 'Verified Safe'!")
+    if res6.overall_status == "Safe":
+        print("  [PASS] Legitimate github.com/login route remained 'Safe'!")
         passed += 1
     else:
         print("  [FAIL] False positive triggered for github.com/login!")

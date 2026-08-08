@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { PopupApp } from './PopupApp';
+import { LanguageProvider } from '../i18n';
 import '../styles/globals.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <PopupApp />
+    <LanguageProvider>
+      <PopupApp />
+    </LanguageProvider>
   </React.StrictMode>
 );
