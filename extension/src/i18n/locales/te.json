@@ -1,0 +1,57 @@
+{
+  "app": {
+    "title": "విజిలో (Vigilo)",
+    "subtitle": "AI బ్రౌజర్ రక్షణ",
+    "guardianActive": "రక్షణ చురుగ్గా ఉంది",
+    "pro": "ప్రో",
+    "active": "చురుగ్గా",
+    "off": "ఆఫ్",
+    "currentWebsite": "ప్రస్తుత వెబ్‌సైట్",
+    "threatsPrevented": "నిరోధించబడిన ప్రమాదాలు",
+    "lastThreat": "చివరి ప్రమాదం",
+    "recentActivity": "ఇటీవలి కార్యకలాపాలు"
+  },
+  "status": {
+    "safe": "సురక్షితం",
+    "lowRisk": "తక్కువ ప్రమాదం",
+    "suspicious": "సందేహాస్పదం",
+    "highRisk": "అధిక ప్రమాదం",
+    "critical": "అత్యంత ప్రమాదకరం"
+  },
+  "threatReport": {
+    "attackPrevented": "దాడి నిరోధించబడింది",
+    "interceptedTarget": "నిరోధించబడిన లక్ష్యం",
+    "threatLevel": "ప్రమాద స్థాయి",
+    "threatScore": "ప్రమాద స్కోరు",
+    "confidence": "AI విశ్వసనీయత స్థాయి",
+    "connectionSecurity": "కనెక్షన్ భద్రత",
+    "category": "వర్గం",
+    "targetBrand": "నకిలీ సంస్థ",
+    "attackPurpose": "దాడి యొక్క ఉద్దేశ్యం",
+    "aiExplanation": "AI ప్రమాద ವಿವರణ సారాంశం",
+    "whyBlocked": "ఇది ఎందుకు నిరోధించబడింది?",
+    "whyNotCritical": "ఎందుకు అత్యంత ప్రమాదకరం కాదు?",
+    "infoAtRisk": "ప్రమాదంలో ఉన్న సమాచారం",
+    "recommendations": "సిఫార్సు చేయబడిన చర్యలు",
+    "technicalEvidence": "సాంకేతిక ఆధారాలు",
+    "ioc": "ప్రమాద సూచికలు (IOC)",
+    "ruleCoverage": "నియమాల రక్షణ పరిధి",
+    "timeline": "భద్రతా విశ్లేషణ కాలక్రమం (8 దశలు)",
+    "socSummary": "SOC విశ్లేషకుడి నిర్ణయం",
+    "goBack": "సురక్షిత ప్రాంతానికి వెళ్ళండి",
+    "continueAnyway": "అయినా కొనసాగించండి (అసురక్షితం)",
+    "exportJson": "JSON డౌన్‌లోడ్",
+    "exportPdf": "PDF డౌన్‌లోడ్"
+  },
+  "threatStory": {
+    "title": "🧠 ప్రమాద కథ",
+    "potentialImpact": "సాధ్యమయ్యే ప్రభావం",
+    "confidenceBadge": "విశ్వసనీయత"
+  },
+  "notifications": {
+    "analyzedSuccess": "వెబ్‌సైట్ విజయవంతంగా విశ్లేషించబడింది",
+    "notSecure": "కనెక్షన్ భద్రమైనది కాదు (HTTP)",
+    "suspiciousDetected": "సందేహాస్పద వెబ్‌సైట్ గురించబడింది",
+    "dangerousBlocked": "ప్రమాదకరమైన వెబ్‌సైట్ నిరోధించబడింది"
+  }
+}

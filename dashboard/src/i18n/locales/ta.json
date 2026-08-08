@@ -1,0 +1,52 @@
+{
+  "app": {
+    "title": "விஜிலோ (Vigilo)",
+    "subtitle": "AI உலாவி பாதுகாப்பு",
+    "guardianActive": "பாதுகாவலர் செயலில் உள்ளார்",
+    "pro": "புரோ",
+    "active": "செயலில்",
+    "off": "முடங்கியது",
+    "currentWebsite": "தற்போதைய இணையதளம்",
+    "threatsPrevented": "தடுக்கப்பட்ட அச்சுறுத்தல்கள்",
+    "lastThreat": "கடைசி அச்சுறுத்தல்",
+    "recentActivity": "சமீபத்திய நடவடிக்கை"
+  },
+  "status": {
+    "safe": "பாதுகாப்பானது",
+    "lowRisk": "குறைந்த அபாயம்",
+    "suspicious": "சந்தேகத்திற்குரியது",
+    "highRisk": "அதிக அபாயம்",
+    "critical": "மிகவும் ஆபத்தானது"
+  },
+  "threatReport": {
+    "attackPrevented": "தாக்குதல் தடுக்கப்பட்டது",
+    "interceptedTarget": "தடுக்கப்பட்ட இலக்கு",
+    "threatLevel": "அச்சுறுத்தல் நிலை",
+    "threatScore": "அச்சுறுத்தல் புள்ளி",
+    "confidence": "AI நம்பிக்கை நிலை",
+    "connectionSecurity": "இணைப்பு பாதுகாப்பு",
+    "category": "பிரிவு",
+    "targetBrand": "போலியாக நடிக்கும் நிறுவனம்",
+    "attackPurpose": "தாக்குதலின் நோக்கம்",
+    "aiExplanation": "AI அச்சுறுத்தல் விளக்க சுருக்கம்",
+    "whyBlocked": "இது ஏன் தடுக்கப்பட்டது?",
+    "whyNotCritical": "ஏன் மிகவும் ஆபத்தானதாக கருதப்படவில்லை?",
+    "infoAtRisk": "ஆபத்தில் உள்ள தகவல்கள்",
+    "recommendations": "பரிந்துரைக்கப்பட்ட நடவடிக்கைகள்",
+    "technicalEvidence": "தொழில்நுட்ப சான்றுகள்",
+    "ioc": "அச்சுறுத்தல் அடையாளங்கள் (IOC)",
+    "ruleCoverage": "விதிகளின் பாதுகாப்பு எல்லை",
+    "timeline": "பாதுகாப்பு ஆய்வு காலக்கோடு (8 நிலைகள்)",
+    "socSummary": "SOC பகுப்பாய்வாளர் முடிவு",
+    "goBack": "பாதுகாப்பான இடத்திற்குச் செல்",
+    "continueAnyway": "தொடர்ந்து செல் (ஆபத்தானது)",
+    "exportJson": "JSON பதிவிறக்கு",
+    "exportPdf": "PDF பதிவிறக்கு"
+  },
+  "notifications": {
+    "analyzedSuccess": "இணையதளம் வெற்றிகரமாக ஆய்வு செய்யப்பட்டது",
+    "notSecure": "இணைப்பு பாதுகாப்பற்றது (HTTP)",
+    "suspiciousDetected": "சந்தேகத்திற்குரிய இணையதளம் கண்டறியப்பட்டது",
+    "dangerousBlocked": "ஆபத்தான இணையதளம் தடுக்கப்பட்டது"
+  }
+}

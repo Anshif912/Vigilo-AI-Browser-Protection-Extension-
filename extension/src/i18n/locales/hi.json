@@ -1,0 +1,57 @@
+{
+  "app": {
+    "title": "विजिलो (Vigilo)",
+    "subtitle": "एआई ब्राउजर सुरक्षा",
+    "guardianActive": "सुरक्षा सक्रिय है",
+    "pro": "प्रो",
+    "active": "सक्रिय",
+    "off": "बंद",
+    "currentWebsite": "वर्तमान वेबसाइट",
+    "threatsPrevented": "रोके गए खतरे",
+    "lastThreat": "अंतिम खतरा",
+    "recentActivity": "हाल की गतिविधि"
+  },
+  "status": {
+    "safe": "सुरक्षित",
+    "lowRisk": "कम जोखिम",
+    "suspicious": "संदिग्ध",
+    "highRisk": "उच्च जोखिम",
+    "critical": "गंभीर"
+  },
+  "threatReport": {
+    "attackPrevented": "हमला रोका गया",
+    "interceptedTarget": "रोका गया लक्ष्य",
+    "threatLevel": "खतरे का स्तर",
+    "threatScore": "खतरा स्कोर",
+    "confidence": "एआई आत्मविश्वास इंजन",
+    "connectionSecurity": "कनेक्शन सुरक्षा",
+    "category": "श्रेणी",
+    "targetBrand": "नकली पहचान",
+    "attackPurpose": "हमले का उद्देश्य",
+    "aiExplanation": "एआई खतरा स्पष्टीकरण सारांश",
+    "whyBlocked": "इसे क्यों ब्लॉक किया गया?",
+    "whyNotCritical": "गंभीर क्यों नहीं है? (संतुलित निर्णय)",
+    "infoAtRisk": "जोखिम में संभावित जानकारी",
+    "recommendations": "कार्रवाई योग्य सिफारिशें",
+    "technicalEvidence": "तकनीकी साक्ष्य विवरण",
+    "ioc": "खतरे के संकेतक (IOC)",
+    "ruleCoverage": "नियम कवरेज",
+    "timeline": "सुरक्षा विश्लेषण समयरेखा (8 चरण)",
+    "socSummary": "एसओसी विश्लेषक निर्णय सारांश",
+    "goBack": "सुरक्षित स्थान पर लौटें",
+    "continueAnyway": "फिर भी आगे बढ़ें (असुरक्षित)",
+    "exportJson": "JSON निर्यात करें",
+    "exportPdf": "PDF निर्यात करें"
+  },
+  "threatStory": {
+    "title": "🧠 खतरा कहानी",
+    "potentialImpact": "संभावित प्रभाव",
+    "confidenceBadge": "आत्मविश्वास"
+  },
+  "notifications": {
+    "analyzedSuccess": "वेबसाइट का सफलतापूर्वक विश्लेषण किया गया",
+    "notSecure": "कनेक्शन सुरक्षित नहीं है (HTTP)",
+    "suspiciousDetected": "संदिग्ध वेबसाइट का पता चला",
+    "dangerousBlocked": "खतरनाक वेबसाइट ब्लॉक की गई"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "app": {
+    "title": "ವಿಜಿಲೋ (Vigilo)",
+    "subtitle": "AI ಬ್ರೌಸರ್ ರಕ್ಷಣೆ",
+    "guardianActive": "ರಕ್ಷಣೆ ಸಕ್ರಿಯವಾಗಿದೆ",
+    "pro": "ಪ್ರೊ",
+    "active": "ಸಕ್ರಿಯ",
+    "off": "ಆಫ್",
+    "currentWebsite": "ಪ್ರಸ್ತುತ ವೆಬ್‌ಸೈಟ್",
+    "threatsPrevented": "ತಡೆಯಲಾದ ಅಪಾಯಗಳು",
+    "lastThreat": "ಕೊನೆಯ ಅಪಾಯ",
+    "recentActivity": "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆ"
+  },
+  "status": {
+    "safe": "ಸುರಕ್ಷಿತ",
+    "lowRisk": "ಕಡಿಮೆ ಅಪಾಯ",
+    "suspicious": "ಸಂದೇಹಾಸ್ಪದ",
+    "highRisk": "ಹೆಚ್ಚಿನ ಅಪಾಯ",
+    "critical": "ಅತ್ಯಂತ ಅಪಾಯಕಾರಿ"
+  },
+  "threatReport": {
+    "attackPrevented": "ದಾಳಿಯನ್ನು ತಡೆಯಲಾಗಿದೆ",
+    "interceptedTarget": "ತಡೆಯಲಾದ ಗುರಿ",
+    "threatLevel": "ಅಪಾಯದ ಮಟ್ಟ",
+    "threatScore": "ಅಪಾಯದ ಅಂಕಗಳು",
+    "confidence": "AI ಆತ್ಮವಿಶ್ವಾಸದ ಮಟ್ಟ",
+    "connectionSecurity": "ಸಂಪರ್ಕ ಸುರಕ್ಷತೆ",
+    "category": "ವರ್ಗ",
+    "targetBrand": "ನಕಲಿ ಸಂಸ್ಥೆ",
+    "attackPurpose": "ದಾಳಿಯ ಉದ್ದೇಶ",
+    "aiExplanation": "AI ಅಪಾಯ ವಿವರಣೆ ಸಾರಾಂಶ",
+    "whyBlocked": "ಇದನ್ನು ಏಕೆ ತಡೆಯಲಾಗಿದೆ?",
+    "whyNotCritical": "ಏಕೆ ಅತ್ಯಂತ ಅಪಾಯಕಾರಿಯಲ್ಲ?",
+    "infoAtRisk": "ಅಪಾಯದಲ್ಲಿರುವ ಮಾಹಿತಿ",
+    "recommendations": "ಶಿಫಾರಸು ಮಾಡಿದ ಕ್ರಮಗಳು",
+    "technicalEvidence": "ತಾಂತ್ರಿಕ ಸಾಕ್ಷ್ಯಗಳು",
+    "ioc": "ಅಪಾಯದ ಸೂಚಕಗಳು (IOC)",
+    "ruleCoverage": "ನಿಯಮಗಳ ರಕ್ಷಣಾ ವ್ಯಾಪ್ತಿ",
+    "timeline": "ಸುರಕ್ಷತಾ ವಿಶ್ಲೇಷಣೆ ಸಮಯರೇಖೆ (8 ಹಂತಗಳು)",
+    "socSummary": "SOC ವಿಶ್ಲೇಷಕರ ನಿರ್ಧಾರ",
+    "goBack": "ಸುರಕ್ಷಿತವಾಗಿ ಹಿಂತಿರುಗಿ",
+    "continueAnyway": "ಮುಂದುವರಿಯಿರಿ (ಅಸುರಕ್ಷಿತ)",
+    "exportJson": "JSON ಡೌನ್‌ಲೋಡ್",
+    "exportPdf": "PDF ಡೌನ್‌ಲೋಡ್"
+  },
+  "threatStory": {
+    "title": "🧠 ಅಪಾಯದ ಕಥೆ",
+    "potentialImpact": "ಸಂಭಾವ್ಯ ಪರಿಣಾಮ",
+    "confidenceBadge": "ಆತ್ಮವಿಶ್ವಾಸ"
+  },
+  "notifications": {
+    "analyzedSuccess": "ವೆಬ್‌ಸೈಟ್ ಯಶಸ್ವಿಯಾಗಿ ವಿಶ್ಲೇಷಿಸಲಾಗಿದೆ",
+    "notSecure": "ಸಂಪರ್ಕವು ಸುರಕ್ಷಿತವಾಗಿಲ್ಲ (HTTP)",
+    "suspiciousDetected": "ಸಂದೇಹಾಸ್ಪದ ವೆಬ್‌ಸೈಟ್ ಪತ್ತೆಯಾಗಿದೆ",
+    "dangerousBlocked": "ಅಪಾಯಕಾರಿ ವೆಬ್‌ಸೈಟ್ ತಡೆಯಲಾಗಿದೆ"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "app": {
+    "title": "Vigilo",
+    "subtitle": "AI Browser Protection",
+    "guardianActive": "GUARDIAN ACTIVE",
+    "pro": "PRO",
+    "active": "ACTIVE",
+    "off": "OFF",
+    "currentWebsite": "Current Website",
+    "threatsPrevented": "Threats Prevented",
+    "lastThreat": "Last Threat",
+    "recentActivity": "Recent Activity"
+  },
+  "status": {
+    "safe": "Safe",
+    "lowRisk": "Low Risk",
+    "suspicious": "Suspicious",
+    "highRisk": "High Risk",
+    "critical": "Critical"
+  },
+  "threatReport": {
+    "attackPrevented": "ATTACK PREVENTED",
+    "interceptedTarget": "Intercepted Target",
+    "threatLevel": "Threat Level",
+    "threatScore": "Threat Score",
+    "confidence": "AI Confidence Engine",
+    "connectionSecurity": "Connection Security",
+    "category": "Category",
+    "targetBrand": "Pretending to be",
+    "attackPurpose": "Attack Purpose",
+    "aiExplanation": "AI THREAT EXPLANATION SUMMARY",
+    "whyBlocked": "Why Was This Blocked?",
+    "whyNotCritical": "Why not Critical? (Balanced Decision)",
+    "infoAtRisk": "Context-Aware Information At Risk",
+    "recommendations": "Actionable AI Recommendations",
+    "technicalEvidence": "Technical Evidence Breakdown",
+    "ioc": "Indicators of Compromise (IOC Card Readout)",
+    "ruleCoverage": "Rule Coverage",
+    "timeline": "Enterprise Pipeline Detection Timeline (8 Stages)",
+    "socSummary": "SOC Analyst Decision Summary",
+    "goBack": "Go Back to Safety",
+    "continueAnyway": "Proceed Anyway (Unsafe)",
+    "exportJson": "Export JSON",
+    "exportPdf": "Export PDF"
+  },
+  "notifications": {
+    "analyzedSuccess": "Website analyzed successfully",
+    "notSecure": "Connection is not secure (HTTP)",
+    "suspiciousDetected": "Suspicious website detected",
+    "dangerousBlocked": "Dangerous website blocked"
+  }
+}

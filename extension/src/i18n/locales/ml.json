@@ -1,0 +1,57 @@
+{
+  "app": {
+    "title": "വിജിലോ (Vigilo)",
+    "subtitle": "AI ബ്രൗസർ സുരക്ഷ",
+    "guardianActive": "സുരക്ഷ സജീവമാണ്",
+    "pro": "പ്രോ",
+    "active": "സജീവം",
+    "off": "ഓഫ്",
+    "currentWebsite": "നിലവിലെ വെബ്‌സൈറ്റ്",
+    "threatsPrevented": "തടഞ്ഞ ഭീഷണികൾ",
+    "lastThreat": "അവസാന ഭീഷണി",
+    "recentActivity": "അടുത്തകാലത്തെ പ്രവർത്തനം"
+  },
+  "status": {
+    "safe": "സുരക്ഷിതം",
+    "lowRisk": "കുറഞ്ഞ അപകടസാധ്യത",
+    "suspicious": "സംശയകരം",
+    "highRisk": "ഉയർന്ന അപകടസാധ്യത",
+    "critical": "വളരെ അപകടകരം"
+  },
+  "threatReport": {
+    "attackPrevented": "ആക്രമണം തടഞ്ഞു",
+    "interceptedTarget": "തടഞ്ഞ ലക്ഷ്യം",
+    "threatLevel": "ഭീഷണി നില",
+    "threatScore": "ഭീഷണി സ്കോർ",
+    "confidence": "AI ആത്മവിശ്വാസ നില",
+    "connectionSecurity": "കണക്ഷൻ സുരക്ഷ",
+    "category": "വിഭാഗം",
+    "targetBrand": "വ്യാജ സ്ഥാപനം",
+    "attackPurpose": "ആക്രമണ ലക്ഷ്യം",
+    "aiExplanation": "AI ഭീഷണി വിശദീകരണ സംഗ്രഹം",
+    "whyBlocked": "ഇത് എന്തുകൊണ്ട് തടഞ്ഞു?",
+    "whyNotCritical": "എന്തുകൊണ്ട് വളരെ അപകടകരമല്ല?",
+    "infoAtRisk": "അപകടസാധ്യതയുള്ള വിവരങ്ങൾ",
+    "recommendations": "നിർദ്ദേശിച്ച നടപടികൾ",
+    "technicalEvidence": "സാങ്കേതിക തെളിവുകൾ",
+    "ioc": "ഭീഷണി സൂചകങ്ങൾ (IOC)",
+    "ruleCoverage": "നിയമ പരിരക്ഷാ വ്യാപ്തി",
+    "timeline": "സുരക്ഷാ വിശകലന ടൈംലൈൻ (8 ഘട്ടങ്ങൾ)",
+    "socSummary": "SOC വിശകലന വിദഗ്ദ്ധന്റെ തീരുമാനം",
+    "goBack": "സുരക്ഷിത സ്ഥാനത്തേക്ക് മടങ്ങുക",
+    "continueAnyway": "മുന്നോട്ട് പോവുക (അപകടകരം)",
+    "exportJson": "JSON ഡൗൺലോഡ്",
+    "exportPdf": "PDF ഡൗൺലോഡ്"
+  },
+  "threatStory": {
+    "title": "🧠 ഭീഷണി കഥ",
+    "potentialImpact": "സാധ്യമായ ആഘാതം",
+    "confidenceBadge": "ആത്മവിശ്വാസം"
+  },
+  "notifications": {
+    "analyzedSuccess": "വെബ്‌സൈറ്റ് വിജയകരമായി വിശകലനം ചെയ്തു",
+    "notSecure": "കണക്ഷൻ സുരക്ഷിതമല്ല (HTTP)",
+    "suspiciousDetected": "സംശയകരമായ വെബ്‌സൈറ്റ് കണ്ടെത്തി",
+    "dangerousBlocked": "അപകടകരമായ വെബ്‌സൈറ്റ് തടഞ്ഞു"
+  }
+}

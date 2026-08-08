@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Vigilo",
+  "version": "1.0.0",
+  "description": "AI Browser Protection",
+  "permissions": [
+    "tabs",
+    "storage",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Vigilo"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html", "warning.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
