@@ -56,10 +56,8 @@ export const PopupApp: React.FC = () => {
     await updateSettings({ protectionEnabled: nextState });
   };
 
-  // Determine if active URL is unencrypted HTTP
   const isHttpUrl = activeUrl ? activeUrl.toLowerCase().startsWith('http://') : false;
 
-  // Determine if current cached analysis matches the active website
   let isAnalysisCurrent = false;
   if (analysis && analysis.url && currentWebsite) {
     try {
@@ -70,6 +68,10 @@ export const PopupApp: React.FC = () => {
       isAnalysisCurrent = false;
     }
   }
+
+  const effectiveTechnical = (isAnalysisCurrent && analysis?.technical_status)
+    ? analysis.technical_status
+    : 'Reachable';
 
   const effectiveProtocol = (isAnalysisCurrent && analysis?.transport_protocol)
     ? analysis.transport_protocol
@@ -103,7 +105,7 @@ export const PopupApp: React.FC = () => {
               <h1 className="text-base font-bold tracking-tight text-white flex items-center gap-1">
                 {t('app.title')}
                 <span className="text-[10px] uppercase tracking-wider font-semibold px-1 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                  {t('app.pro')}
+                  v4.0 OS
                 </span>
               </h1>
               <p className="text-[11px] text-slate-400">{t('app.subtitle')}</p>
@@ -135,7 +137,7 @@ export const PopupApp: React.FC = () => {
                 <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider block">
                   Current Website
                 </span>
-                <span className="text-xs font-semibold text-slate-200 truncate max-w-[140px] block">
+                <span className="text-xs font-semibold text-slate-200 truncate max-w-[130px] block">
                   {currentWebsite}
                 </span>
               </div>
@@ -143,7 +145,7 @@ export const PopupApp: React.FC = () => {
             <div className="text-right flex items-center gap-1.5">
               <span
                 className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold border ${
-                  effectiveSecurity === 'Not Secure'
+                  effectiveSecurity.includes('Not Secure') || effectiveSecurity.includes('Invalid') || effectiveSecurity.includes('Unable')
                     ? 'bg-amber-500/10 text-amber-400 border-amber-500/30'
                     : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
                 }`}
@@ -156,6 +158,8 @@ export const PopupApp: React.FC = () => {
                     ? 'bg-rose-500/10 text-rose-400 border-rose-500/30'
                     : effectiveStatus === 'Suspicious'
                     ? 'bg-amber-500/10 text-amber-400 border-amber-500/30'
+                    : effectiveStatus === 'Unverified'
+                    ? 'bg-purple-500/10 text-purple-400 border-purple-500/30'
                     : effectiveStatus === 'Low Risk'
                     ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/30'
                     : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
@@ -166,22 +170,21 @@ export const PopupApp: React.FC = () => {
             </div>
           </div>
 
-          {displayAnalysis && (
-            <div className="pt-2 border-t border-slate-800/60 grid grid-cols-2 gap-2 text-[10px]">
-              <div>
-                <span className="text-slate-500 block uppercase">Threat Score</span>
-                <span className={`font-mono font-bold text-xs ${displayAnalysis.threat_score >= 60 ? 'text-rose-400' : displayAnalysis.threat_score >= 40 ? 'text-amber-400' : 'text-emerald-400'}`}>
-                  {displayAnalysis.threat_score}/100 ({displayAnalysis.confidence || 85}% {displayAnalysis.confidence_level || 'High'})
-                </span>
-              </div>
-              <div>
-                <span className="text-slate-500 block uppercase">Category</span>
-                <span className="font-semibold text-blue-400 truncate block">
-                  {displayAnalysis.category || 'Legitimate Domain'}
-                </span>
-              </div>
+          {/* 4-Signal Multi-Status Telemetry */}
+          <div className="pt-2 border-t border-slate-800/60 grid grid-cols-2 gap-2 text-[10px]">
+            <div>
+              <span className="text-slate-500 block uppercase">Technical Status</span>
+              <span className={`font-semibold truncate block ${effectiveTechnical.includes('Unreachable') || effectiveTechnical.includes('DNS') ? 'text-amber-400' : 'text-slate-300'}`}>
+                {effectiveTechnical}
+              </span>
             </div>
-          )}
+            <div>
+              <span className="text-slate-500 block uppercase">Threat Score & Confidence</span>
+              <span className={`font-mono font-bold block ${displayAnalysis && displayAnalysis.threat_score >= 60 ? 'text-rose-400' : displayAnalysis && displayAnalysis.threat_score >= 40 ? 'text-amber-400' : 'text-emerald-400'}`}>
+                {displayAnalysis ? `${displayAnalysis.threat_score}/100 (${displayAnalysis.confidence || 85}% ${displayAnalysis.confidence_level || 'High'})` : 'N/A (Unverified)'}
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* AI Threat Story Card */}
@@ -222,7 +225,7 @@ export const PopupApp: React.FC = () => {
 
       {/* Footer */}
       <div className="pt-3 border-t border-slate-800/80 text-center text-[10px] text-slate-500">
-        Vigilo Real-Time Engine • Protected by AI
+        Vigilo v4.0 Multi-Signal Engine • Enterprise Threat OS
       </div>
     </div>
   );
