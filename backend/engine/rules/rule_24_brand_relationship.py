@@ -3,6 +3,20 @@ from typing import Dict, Any
 from engine.base_rule import BaseRule, RuleResult
 from services.brand_database import OFFICIAL_BRAND_DOMAINS, ALL_BRAND_ENTRIES
 
+def clean_query_string(query_string: str) -> str:
+    """
+    Strips standard marketing and tracking parameters from a query string before brand checks.
+    """
+    if not query_string:
+        return ""
+    try:
+        params = urllib.parse.parse_qsl(query_string)
+        ignored_keys = {"utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref", "source", "campaign", "gclid", "fbclid"}
+        filtered = [f"{k}={v}" for k, v in params if k.lower() not in ignored_keys]
+        return "&".join(filtered)
+    except Exception:
+        return query_string
+
 class Rule24BrandRelationship(BaseRule):
     rule_id = "RULE_24"
     rule_name = "Brand Relationship Taxonomy Analysis"
@@ -62,7 +76,8 @@ class Rule24BrandRelationship(BaseRule):
                 )
 
             # Case 4: Query Reference (e.g. evil.xyz?redirect=google.com)
-            if brand in query:
+            cleaned_query = clean_query_string(query)
+            if cleaned_query and brand in cleaned_query:
                 return RuleResult(
                     rule_id=self.rule_id,
                     rule_name=self.rule_name,

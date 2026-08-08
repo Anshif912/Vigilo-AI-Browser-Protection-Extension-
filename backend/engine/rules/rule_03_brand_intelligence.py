@@ -1,6 +1,21 @@
+import urllib.parse
 from typing import Dict, Any
 from engine.base_rule import BaseRule, RuleResult
 from services.brand_database import ALL_BRAND_ENTRIES, get_brand_category
+
+def clean_query_string(query_string: str) -> str:
+    """
+    Strips standard marketing and tracking parameters from a query string before brand checks.
+    """
+    if not query_string:
+        return ""
+    try:
+        params = urllib.parse.parse_qsl(query_string)
+        ignored_keys = {"utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref", "source", "campaign", "gclid", "fbclid"}
+        filtered = [f"{k}={v}" for k, v in params if k.lower() not in ignored_keys]
+        return "&".join(filtered)
+    except Exception:
+        return query_string
 
 class Rule03BrandIntelligence(BaseRule):
     rule_id = "RULE_03"
@@ -13,11 +28,12 @@ class Rule03BrandIntelligence(BaseRule):
         subdomain = psl.get("subdomain", "").lower()
         path = psl.get("path", "").lower()
         query = psl.get("query", "").lower()
-        full_url = payload.get("normalized_url", "").lower()
 
         detected_brand = None
         detected_location = None
         matched = False
+
+        cleaned_query = clean_query_string(query)
 
         for brand in ALL_BRAND_ENTRIES:
             if len(brand) < 3:
@@ -38,7 +54,7 @@ class Rule03BrandIntelligence(BaseRule):
                 detected_location = "path"
                 matched = True
                 break
-            elif brand in query:
+            elif cleaned_query and brand in cleaned_query:
                 detected_brand = brand
                 detected_location = "query"
                 matched = True

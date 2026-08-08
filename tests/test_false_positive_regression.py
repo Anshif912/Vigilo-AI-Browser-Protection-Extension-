@@ -17,6 +17,8 @@ def run_fp_tests():
     test_cases = [
         # Domain, Expected Status
         ("https://ollama.com", "Safe"),
+        ("https://ollama.com/pricing", "Safe"),
+        ("https://ollama.com/pricing?utm_source=chatgpt", "Safe"),
         ("https://google.com", "Safe"),
         ("https://github.com", "Safe"),
         ("https://microsoft.com", "Safe"),

@@ -1,6 +1,6 @@
 from typing import Dict, Any
 from engine.base_rule import BaseRule, RuleResult
-from services.brand_database import ALL_BRAND_ENTRIES
+from services.brand_database import OFFICIAL_BRAND_DOMAINS, ALL_BRAND_ENTRIES
 
 class Rule07PathImpersonation(BaseRule):
     rule_id = "RULE_07"
@@ -19,6 +19,10 @@ class Rule07PathImpersonation(BaseRule):
         for brand in ALL_BRAND_ENTRIES:
             if len(brand) < 3:
                 continue
+
+            official_domains = OFFICIAL_BRAND_DOMAINS.get(brand, [])
+            if registered_domain in official_domains:
+                continue  # Bypassed on official domains for this brand
 
             if brand in path and brand not in registered_domain and brand not in subdomain:
                 if brand in ["americanexpress", "amex"]:

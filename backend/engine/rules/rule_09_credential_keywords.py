@@ -1,5 +1,6 @@
 from typing import Dict, Any
 from engine.base_rule import BaseRule, RuleResult
+from services.brand_database import OFFICIAL_BRAND_DOMAINS
 
 CREDENTIAL_KEYWORDS = [
     "login", "signin", "verify", "authentication", "secure", "password", "otp",
@@ -12,8 +13,25 @@ class Rule09CredentialKeywords(BaseRule):
     category = "Keyword Analysis"
 
     def evaluate(self, payload: Dict[str, Any]) -> RuleResult:
+        psl = payload.get("psl", {})
+        registered_domain = psl.get("registered_domain", "").lower()
         full_url = payload.get("normalized_url", "").lower()
         
+        # Check if the domain is a verified official brand domain
+        is_official = any(registered_domain in official_list for official_list in OFFICIAL_BRAND_DOMAINS.values())
+
+        if is_official:
+            # Bypass generic keyword triggers on verified official brand platforms
+            return RuleResult(
+                rule_id=self.rule_id,
+                rule_name=self.rule_name,
+                matched=False,
+                weight=0,
+                evidence="Keywords bypassed on verified official brand domain.",
+                severity="INFO",
+                category=self.category
+            )
+
         matched_kws = [kw for kw in CREDENTIAL_KEYWORDS if kw in full_url]
 
         if matched_kws:
@@ -29,4 +47,12 @@ class Rule09CredentialKeywords(BaseRule):
                 details={"matched_keywords": matched_kws}
             )
 
-        return RuleResult(self.rule_id, self.rule_name, False, 0, "No credential keywords detected", "INFO", self.category)
+        return RuleResult(
+            rule_id=self.rule_id,
+            rule_name=self.rule_name,
+            matched=False,
+            weight=0,
+            evidence="No credential keywords detected",
+            severity="INFO",
+            category=self.category
+        )
