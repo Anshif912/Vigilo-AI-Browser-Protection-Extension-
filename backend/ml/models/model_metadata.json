@@ -1,0 +1,114 @@
+{
+  "model_version": "4.2.0",
+  "dataset_name": "PhiUSIIL Phishing Dataset",
+  "dataset_rows": 235795,
+  "feature_count": 19,
+  "excluded_features": [
+    "URLSimilarityIndex",
+    "FILENAME",
+    "label",
+    "url_char_prob",
+    "char_continuation_rate"
+  ],
+  "training_date": "2026-08-08",
+  "random_seed": 42,
+  "train_rows": 165915,
+  "validation_rows": 39322,
+  "test_rows": 30558,
+  "train_unique_domains": 122856,
+  "validation_unique_domains": 26326,
+  "test_unique_domains": 26327,
+  "train_test_domain_overlap": 0,
+  "metrics": {
+    "xgboost_url_only": {
+      "accuracy": 0.99545127298907,
+      "precision": 0.9935758054951571,
+      "recall": 0.9995525727069351,
+      "f1": 0.9965552278753934,
+      "roc_auc": 0.9973561839398561,
+      "pr_auc": 0.9977810795094418,
+      "fpr": 0.012448530115867088,
+      "fnr": 0.00044742729306487697,
+      "confusion_matrix": {
+        "tn": 10313,
+        "fp": 130,
+        "fn": 9,
+        "tp": 20106
+      }
+    },
+    "xgboost_full": {
+      "accuracy": 0.9998036520714706,
+      "precision": 0.9998011631953074,
+      "recall": 0.9999005717126522,
+      "f1": 0.999850864983098,
+      "roc_auc": 0.9999990621769315,
+      "pr_auc": 0.9999995149044748,
+      "fpr": 0.00038303169587283346,
+      "fnr": 9.942828734775044e-05,
+      "confusion_matrix": {
+        "tn": 10439,
+        "fp": 4,
+        "fn": 2,
+        "tp": 20113
+      }
+    },
+    "baseline": {
+      "accuracy": 0.9970220564173048,
+      "precision": 0.9955944955944956,
+      "recall": 0.9999005717126522,
+      "f1": 0.997742887615646,
+      "roc_auc": 0.9979305553443073,
+      "pr_auc": 0.9979783416081586,
+      "fpr": 0.008522455233170545,
+      "fnr": 9.942828734775044e-05,
+      "confusion_matrix": {
+        "tn": 10354,
+        "fp": 89,
+        "fn": 2,
+        "tp": 20113
+      }
+    }
+  },
+  "top_features": [
+    {
+      "feature": "other_special_chars_count_in_url",
+      "importance": 0.4961033761501312
+    },
+    {
+      "feature": "is_https",
+      "importance": 0.32852038741111755
+    },
+    {
+      "feature": "subdomain_count",
+      "importance": 0.05267857760190964
+    },
+    {
+      "feature": "digits_count_in_url",
+      "importance": 0.03301317244768143
+    },
+    {
+      "feature": "url_length",
+      "importance": 0.027232129126787186
+    },
+    {
+      "feature": "letter_ratio_in_url",
+      "importance": 0.025579623878002167
+    },
+    {
+      "feature": "letters_count_in_url",
+      "importance": 0.009534408338367939
+    },
+    {
+      "feature": "tld_legitimate_prob",
+      "importance": 0.006077558267861605
+    },
+    {
+      "feature": "tld_length",
+      "importance": 0.005832348484545946
+    },
+    {
+      "feature": "digit_ratio_in_url",
+      "importance": 0.005815793760120869
+    }
+  ]
+}

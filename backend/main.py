@@ -6,6 +6,7 @@ from routers.threats import router as threats_router
 from routers.campaigns import router as campaigns_router
 from routers.stats import router as stats_router
 from routers.health import router as health_router
+from routers.ml_analyze import router as ml_analyze_router
 
 app = FastAPI(
     title="Vigilo Threat Intelligence API",
@@ -28,6 +29,7 @@ app.include_router(threats_router)
 app.include_router(campaigns_router)
 app.include_router(stats_router)
 app.include_router(health_router)
+app.include_router(ml_analyze_router)
 
 @app.on_event("startup")
 def on_startup():
