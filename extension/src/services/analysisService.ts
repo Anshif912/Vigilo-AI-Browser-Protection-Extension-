@@ -60,7 +60,7 @@ class AnalysisService {
    * Module 6 — Decision Engine (Single Source of Truth)
    */
   public evaluateThreat(score: number, status?: string): DecisionType {
-    if (status === 'Critical' || status === 'High Risk' || score >= 60) return 'BLOCK';
+    if (status === 'Critical' || status === 'High Risk' || status === 'Unverified' || score >= 60) return 'BLOCK';
     if (status === 'Suspicious' || score >= 40) return 'WARNING';
     return 'ALLOW';
   }
@@ -201,7 +201,8 @@ class AnalysisService {
         ioc: JSON.stringify(analysis.ioc || {}),
         analysis_trace: JSON.stringify(analysis.analysis_trace || []),
         ai_explanation: JSON.stringify(analysis.ai_explanation || {}),
-        threat_timeline: JSON.stringify(analysis.threat_timeline || [])
+        threat_timeline: JSON.stringify(analysis.threat_timeline || []),
+        status: analysis.status || ''
       });
 
       const redirectUrl = chrome.runtime.getURL(`blocked.html?${params.toString()}`);

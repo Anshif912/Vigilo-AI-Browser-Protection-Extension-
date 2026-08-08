@@ -47,7 +47,8 @@ export const BlockedPage: React.FC = () => {
     analysisTrace: [] as any[],
     aiExplanation: {} as any,
     threatTimeline: [] as any[],
-    ioc: {} as any
+    ioc: {} as any,
+    status: ''
   });
 
   const [isEvidenceOpen, setIsEvidenceOpen] = useState(false);
@@ -72,7 +73,8 @@ export const BlockedPage: React.FC = () => {
     const aiExp = searchParams.get('ai_explanation');
     const timeline = searchParams.get('threat_timeline');
     const iocData = searchParams.get('ioc');
-
+    const status = searchParams.get('status');
+ 
     if (url) {
       setParams({
         url: url,
@@ -92,7 +94,8 @@ export const BlockedPage: React.FC = () => {
         analysisTrace: trace ? JSON.parse(trace) : [],
         aiExplanation: aiExp ? JSON.parse(aiExp) : {},
         threatTimeline: timeline ? JSON.parse(timeline) : [],
-        ioc: iocData ? JSON.parse(iocData) : {}
+        ioc: iocData ? JSON.parse(iocData) : {},
+        status: status || ''
       });
     }
   }, []);
@@ -208,11 +211,16 @@ export const BlockedPage: React.FC = () => {
               <ShieldAlert className="w-10 h-10 sm:w-12 sm:h-12 text-rose-500" />
             </div>
           </div>
-
           <div className="space-y-2">
             <div className="flex items-center justify-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-400 border border-rose-500/40 uppercase tracking-widest">
-                {params.score >= 75 ? t('status.critical') : t('status.highRisk')} ({params.score}/100)
+              <span className={`px-3 py-1 rounded-full text-xs font-bold border uppercase tracking-widest ${
+                params.status === 'Unverified'
+                  ? 'bg-purple-500/20 text-purple-400 border-purple-500/40'
+                  : params.score >= 75
+                  ? 'bg-rose-500/20 text-rose-400 border-rose-500/40'
+                  : 'bg-rose-500/20 text-rose-400 border-rose-500/40'
+              }`}>
+                {params.status === 'Unverified' ? 'UNVERIFIED' : (params.score >= 75 ? t('status.critical') : t('status.highRisk'))} ({params.score}/100)
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/40 uppercase tracking-widest">
                 {threatType}
@@ -220,12 +228,23 @@ export const BlockedPage: React.FC = () => {
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight flex items-center justify-center gap-2">
-              <AlertOctagon className="w-8 h-8 text-rose-500 inline" />
-              {t('threatReport.attackPrevented')}
+              {params.status === 'Unverified' ? (
+                <>
+                  <FileWarning className="w-8 h-8 text-amber-500 inline" />
+                  DESTINATION COULD NOT BE VERIFIED
+                </>
+              ) : (
+                <>
+                  <AlertOctagon className="w-8 h-8 text-rose-500 inline" />
+                  {t('threatReport.attackPrevented')}
+                </>
+              )}
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-medium leading-relaxed">
-              Vigilo intercepted access to this portal before credentials or session telemetry could be compromised.
+              {params.status === 'Unverified'
+                ? 'Vigilo could not fully verify this destination. Technical reachability is currently unresolved.'
+                : 'Vigilo intercepted access to this portal before credentials or session telemetry could be compromised.'}
             </p>
           </div>
 
@@ -243,7 +262,7 @@ export const BlockedPage: React.FC = () => {
               onClick={handleContinueAnyway}
               className="flex items-center space-x-2 px-5 py-3 rounded-2xl bg-slate-900/80 hover:bg-slate-800 border border-rose-500/30 text-rose-300 font-medium text-xs transition-colors"
             >
-              <span>{t('threatReport.continueAnyway')}</span>
+              <span>{params.status === 'Unverified' ? 'Continue with Caution' : t('threatReport.continueAnyway')}</span>
             </button>
           </div>
         </motion.div>
